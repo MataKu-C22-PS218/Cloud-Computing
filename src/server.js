@@ -1,7 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
-const db = require('./routes')
 const port = 3000
 
 app.use(bodyParser.json())
@@ -11,8 +10,7 @@ app.use(
   })
 )
 
-app.post('/register', db.registerUser)
-app.post('/login', db.loginUser)
+app.use(require('./routes'));
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`)
