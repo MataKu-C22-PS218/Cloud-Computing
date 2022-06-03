@@ -1,11 +1,11 @@
 const pool = require('./queries')
 var md5 = require('md5');
 
-//handler untuk mendapatkan lokasi
+//handler untuk menambah lokasi
 const addLocation = (request, response) => {
-    const {place} = request.body
+    const {username, place} = request.body
 
-    pool.query('INSERT INTO location_history(place) VALUES ($1)', [place], (error, results) => {
+    pool.query('INSERT INTO location_history(username, place) VALUES ($1, $2)', [username, place], (error, results) => {
       if (error) {
         throw error
       }
@@ -17,7 +17,9 @@ const addLocation = (request, response) => {
 
 //handler untuk mendapatkan lokasi
 const getLocation = (request, response) => {
-    pool.query('SELECT * FROM location_history', (error, results) => {
+  const {username} = request.body
+
+    pool.query('SELECT * FROM location_history WHERE username = $1', [username], (error, results) => {
       if (error) {
         throw error
       }
@@ -25,7 +27,8 @@ const getLocation = (request, response) => {
       if (results.rows.length > 0) {
           response.status(200);
           response.send(results.rows);
-      } 
+      }
+
       else {
         response.status(404);
         response.send('Location data is empty!');
@@ -73,11 +76,8 @@ const loginUser  = (request, response) => {
 
     if (results.rows.length > 0) {
       response.status(200);
-      response.send('Login ' + request.body.email + ' Sucessfull');
-      //Authenticate the user
-      // request.session.loggedin = true;
-      // request.session.email = email;
-      // request.session.password = password;
+      response.send(results.rows[0].username);
+      console.log('Login ' + request.body.email + ' Sucessfull');
     } 
     else {
        response.send('Incorrect Username and/or Password!');
