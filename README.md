@@ -15,14 +15,19 @@ For the APIs, we make Login API to do the user registration, user login, and loc
 | /location | GET | user get the list of the location 
 
 After being tested locally, then we upload the source code to server. The server we use is Compute Engine VM and CloudSQL to store the data.
-1. For the database, using PostgreSQL from CloudSQL.
-2. Make the database instance, database, and table.
-3. Build Compute Engine VM. Use static external IP Address.
-4. SSH the VM. Clone this github repository inside the VM.
-5. Install npm package needed in VM
-6. Update the queries.js file in remote repository. Customize the database name, IP host of the CloudSQL, username, and the password. Commit change.
-7. Pull the remote repository change in VM instance.
-8. Run the program (npm run init)
+1. Make a GCP Project
+2. Use Budget and Alerting so we can get alerted if the budget have reached the some percentages of remaining credits.
+3. Configure IAM and Admin to add another friend and give them editor role.
+4. For the database, using PostgreSQL from CloudSQL.
+5. Make the database instance, database, and user database.
+6. Build Compute Engine VM. Use static external IP Address.
+7. SSH the VM. Clone this github repository inside the VM.
+8. Connect the database (PostgreSQL) to the VM. 
+9. Make new tables to store the user account and location history.
+11. Install nodeJS in VM.
+12. Update the queries.js file in remote repository. Customize the database name, IP host of the CloudSQL, username, and the password. Commit change.
+13. Pull the remote repository change in VM instance.
+14. Run the program (npm run init)
 
 For the testing, we use Postman first. Point the URL to the VM External API. The result is kinda be like this :
 
