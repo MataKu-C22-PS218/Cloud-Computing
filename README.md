@@ -24,6 +24,11 @@ After being tested locally, then we upload the source code to server. The server
 7. Pull the remote repository change in VM instance.
 8. Run the program (npm run init)
 
-For the testing, we use Postman first. The result is kinda be like this :
+For the testing, we use Postman first. Point the URL to the VM External API. The result is kinda be like this :
 
-
+![1](https://user-images.githubusercontent.com/88976664/173221305-9683840a-a50f-4884-8f53-0e62e4da4188.png)
+![2](https://user-images.githubusercontent.com/88976664/173221316-5c1fed7d-d96a-433c-8b52-9a9082533c38.png)
+![unknown](https://user-images.githubusercontent.com/88976664/173221325-2df447a5-a8ff-4918-9478-a6b5d1e04012.png)
+![4](https://user-images.githubusercontent.com/88976664/173221328-b1524cb9-ab8f-4d37-a0cb-83db7a4c5941.png)
+![5](https://user-images.githubusercontent.com/88976664/173221329-7350ca27-9f6c-4ffe-864b-3e2a1064e1f5.png)
+![7](https://user-images.githubusercontent.com/88976664/173221334-20bc04bd-6c55-41ef-818d-2b856baa5c66.png)
