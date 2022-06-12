@@ -5,6 +5,14 @@ Team Member:
 
 Cloud Computing team is responsible to make API to be used by Mobile app and allocate resource for server using GCP.
 
-For the APIs, we make Login API to do the user authentication (login) function. It needs username, email, and password to do that. Another API is Location API. It it used to send the update location from client to server and get user's location list froms erver. For the API, we write it in Node.js using ExpressJS Framework.
+For the APIs, we make Login API to do the user registration, user login, and location update. For the API, we write it in Node.js using ExpressJS Framework.
+
+| Endoint | Method | Description |
+|---------|--------|-------------|
+| /register | POST |Regist new account. User sends username, email, and password |
+| /login | POST | Login the registered account |
+| /location | POST | user send the coordinate location to server regularly |
+| /location | GET | user get the list of the location 
 
 After being tested locally, then we upload the source code to server. The server we use is Compute Engine VM and CloudSQL to store the data.
+
